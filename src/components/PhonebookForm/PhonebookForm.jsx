@@ -22,7 +22,7 @@ export const PhonebookForm = () => {
       alert(`Name already in contacts`);
       return;
     } else {
-      const contact = { name: nameEl, phone };
+      const contact = { name: nameEl, number: phone };
       dispatch(addUsers(contact));
       setNameEl('');
       setPhone('');

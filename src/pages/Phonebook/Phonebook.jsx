@@ -7,8 +7,10 @@ import { addItemSelector, filterItemSelector } from 'redux/items-selector';
 import { filterAction } from 'redux/ItemsActions';
 import { deleteUser, fetchUsers } from 'redux/ItemsOperations';
 import { useEffect } from 'react';
+import { getLogin } from 'redux/auth/auth-selectors';
 
 export const Phonebook = () => {
+  const islogin = useSelector(getLogin);
   const dispatch = useDispatch();
   const contacts = useSelector(addItemSelector);
   const filteritem = useSelector(filterItemSelector);
@@ -16,6 +18,7 @@ export const Phonebook = () => {
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
+
   const handleChange = event => {
     const { value } = event.target;
     dispatch(filterAction(value));
@@ -33,13 +36,17 @@ export const Phonebook = () => {
 
   return (
     <>
-      <Section title="phonebook">
-        <PhonebookForm />
-      </Section>
-      <Section title="Contacts">
-        <FindByName value={filteritem} onChange={handleChange} />
-        <Contacts contact={handleFilters()} onDelete={handleDelete} />
-      </Section>
+      {islogin && (
+        <>
+          <Section title="phonebook">
+            <PhonebookForm />
+          </Section>
+          <Section title="Contacts">
+            <FindByName value={filteritem} onChange={handleChange} />
+            <Contacts contact={handleFilters()} onDelete={handleDelete} />
+          </Section>
+        </>
+      )}
     </>
   );
 };

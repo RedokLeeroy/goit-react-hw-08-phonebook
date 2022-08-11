@@ -1,34 +1,43 @@
 import { Link } from './Navigation.styled';
 import { ListUl } from './Navigation.styled';
+import { getLogin } from 'redux/auth/auth-selectors';
+import { useSelector } from 'react-redux';
 
 export const Navigation = () => {
+  const islogin = useSelector(getLogin);
   return (
     <nav>
       <ListUl>
         <li>
-          <Link
-            className={({ isActive }) => (isActive ? 'active' : '')}
-            to="/login"
-          >
-            Login
-          </Link>
+          {!islogin && (
+            <Link
+              className={({ isActive }) => (isActive ? 'active' : '')}
+              to="/login"
+            >
+              Login
+            </Link>
+          )}
         </li>
         <li>
-          <Link
-            className={({ isActive }) => (isActive ? 'active' : '')}
-            to="/register"
-          >
-            Register
-          </Link>
+          {!islogin && (
+            <Link
+              className={({ isActive }) => (isActive ? 'active' : '')}
+              to="/register"
+            >
+              Register
+            </Link>
+          )}
         </li>
-        <li>
-          <Link
-            className={({ isActive }) => (isActive ? 'active' : '')}
-            to="/contacts"
-          >
-            Contacts
-          </Link>
-        </li>
+        {islogin && (
+          <li>
+            <Link
+              className={({ isActive }) => (isActive ? 'active' : '')}
+              to="/contacts"
+            >
+              Contacts
+            </Link>
+          </li>
+        )}
       </ListUl>
     </nav>
   );

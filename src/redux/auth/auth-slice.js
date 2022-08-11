@@ -10,7 +10,7 @@ const initialState = {
   isLogin: false,
 };
 
-export const authSlice = createSlice({
+const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
@@ -30,8 +30,10 @@ export const authSlice = createSlice({
       state.isLogin = false;
     },
     [getRefresh.fulfilled]: (state, { payload }) => {
-      state.user = payload.user;
+      state.user = payload;
       state.isLogin = true;
     },
   },
 });
+
+export const authSlicer = authSlice.reducer;
