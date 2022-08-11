@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/RedokLeeroy-goit-react-hw-07-phonebook/static/css/main.d52784f1.css",
+    "main.js": "/RedokLeeroy-goit-react-hw-07-phonebook/static/js/main.3dda3e58.js",
+    "index.html": "/RedokLeeroy-goit-react-hw-07-phonebook/index.html",
+    "main.d52784f1.css.map": "/RedokLeeroy-goit-react-hw-07-phonebook/static/css/main.d52784f1.css.map",
+    "main.3dda3e58.js.map": "/RedokLeeroy-goit-react-hw-07-phonebook/static/js/main.3dda3e58.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d52784f1.css",
+    "static/js/main.3dda3e58.js"
+  ]
+}
