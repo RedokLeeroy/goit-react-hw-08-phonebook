@@ -1,7 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-// import { getToken } from './auth/auth-selectors';
-// import { useSelector } from 'react-redux';
 
 export const fetchUsers = createAsyncThunk('contacts/fetchUsers', async () => {
   const response = await axios.get('/contacts');
@@ -16,6 +14,6 @@ export const addUsers = createAsyncThunk('contacts/addUser', async contact => {
 });
 
 export const deleteUser = createAsyncThunk('contacts/deleteUsers', async id => {
-  const response = await axios.delete(`contacts/${id}`);
-  return response.data.id;
+  await axios.delete(`contacts/${id}`);
+  return id;
 });
