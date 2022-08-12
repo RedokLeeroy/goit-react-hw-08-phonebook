@@ -5,12 +5,10 @@ import { Contacts } from 'components/Contacts/Contacts';
 import { FindByName } from 'components/FindByName/FindByName';
 import { addItemSelector, filterItemSelector } from 'redux/items-selector';
 import { filterAction } from 'redux/ItemsActions';
-import { deleteUser, fetchUsers } from 'redux/ItemsOperations';
+import { fetchUsers } from 'redux/ItemsOperations';
 import { useEffect } from 'react';
-import { getLogin } from 'redux/auth/auth-selectors';
 
 export const Phonebook = () => {
-  const islogin = useSelector(getLogin);
   const dispatch = useDispatch();
   const contacts = useSelector(addItemSelector);
   const filteritem = useSelector(filterItemSelector);
@@ -30,9 +28,9 @@ export const Phonebook = () => {
     );
   };
 
-  const handleDelete = id => {
-    dispatch(deleteUser(id));
-  };
+  // const handleDelete = id => {
+  //   dispatch(deleteUser(id));
+  // };
 
   return (
     <>
@@ -42,7 +40,7 @@ export const Phonebook = () => {
         </Section>
         <Section title="Contacts">
           <FindByName value={filteritem} onChange={handleChange} />
-          <Contacts contact={handleFilters()} onDelete={handleDelete} />
+          <Contacts contact={handleFilters()} />
         </Section>
       </>
     </>
