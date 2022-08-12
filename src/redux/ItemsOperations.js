@@ -11,11 +11,8 @@ export const fetchUsers = createAsyncThunk('contacts/fetchUsers', async () => {
 export const addUsers = createAsyncThunk('contacts/addUser', async contact => {
   try {
     const response = await axios.post('/contacts', contact);
-    console.log(response);
     return response.data;
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 });
 
 export const deleteUser = createAsyncThunk('contacts/deleteUsers', async id => {

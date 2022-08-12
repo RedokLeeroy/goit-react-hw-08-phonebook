@@ -6,6 +6,8 @@ import { Login } from '../pages/Login/Login';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getRefresh } from 'redux/auth/auth-operations';
+import { PrivateRoute } from './PrivateRoute/PrivateRoute';
+import { PublicRoute } from './PublicRoute/publicRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -17,9 +19,30 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/register" element={<RegisterForm />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/contacts" element={<Phonebook />} />
+        <Route
+          index
+          element={
+            <PublicRoute>
+              <RegisterForm />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="login"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="contacts"
+          element={
+            <PrivateRoute>
+              <Phonebook />
+            </PrivateRoute>
+          }
+        />
       </Route>
     </Routes>
   );

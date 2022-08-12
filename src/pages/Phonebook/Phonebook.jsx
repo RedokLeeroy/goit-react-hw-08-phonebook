@@ -36,17 +36,15 @@ export const Phonebook = () => {
 
   return (
     <>
-      {islogin && (
-        <>
-          <Section title="phonebook">
-            <PhonebookForm />
-          </Section>
-          <Section title="Contacts">
-            <FindByName value={filteritem} onChange={handleChange} />
-            <Contacts contact={handleFilters()} onDelete={handleDelete} />
-          </Section>
-        </>
-      )}
+      <>
+        <Section title="phonebook">
+          <PhonebookForm />
+        </Section>
+        <Section title="Contacts">
+          <FindByName value={filteritem} onChange={handleChange} />
+          <Contacts contact={handleFilters()} onDelete={handleDelete} />
+        </Section>
+      </>
     </>
   );
 };

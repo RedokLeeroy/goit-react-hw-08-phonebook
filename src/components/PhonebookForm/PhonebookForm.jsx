@@ -13,7 +13,6 @@ export const PhonebookForm = () => {
   const [phone, setPhone] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(addItemSelector);
-  console.log(contacts);
 
   const handSubmit = event => {
     event.preventDefault();

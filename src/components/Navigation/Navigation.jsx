@@ -22,7 +22,7 @@ export const Navigation = () => {
           {!islogin && (
             <Link
               className={({ isActive }) => (isActive ? 'active' : '')}
-              to="/register"
+              to="/"
             >
               Register
             </Link>
