@@ -23,7 +23,7 @@ export const App = () => {
         <Route
           index
           element={
-            <PublicRoute>
+            <PublicRoute redirectTo="/contacts">
               <RegisterForm />
             </PublicRoute>
           }
@@ -31,7 +31,7 @@ export const App = () => {
         <Route
           path="login"
           element={
-            <PublicRoute>
+            <PublicRoute redirectTo="/contacts">
               <Login />
             </PublicRoute>
           }
