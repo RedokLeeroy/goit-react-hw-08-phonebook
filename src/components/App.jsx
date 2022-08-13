@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { getRefresh } from 'redux/auth/auth-operations';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 import { PublicRoute } from './PublicRoute/publicRoute';
+import { GoHomePage } from './GoHomePage/GoHomePage';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -43,6 +44,7 @@ export const App = () => {
             </PrivateRoute>
           }
         />
+        <Route path="*" element={<GoHomePage />} />
       </Route>
     </Routes>
   );
